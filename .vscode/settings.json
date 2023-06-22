@@ -1,5 +1,8 @@
 {
 	"C_Cpp.default.includePath": [
 		"includes"
-	]
+	],
+	"files.exclude": {
+		"fdf": true
+	}
 }
