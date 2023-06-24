@@ -6,14 +6,15 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 02:01:01 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/06/23 02:12:39 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/06/23 13:38:39 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int main()
+int main(int argc, char const *argv[])
 {
-	
+	/* code */
 	return 0;
 }
+
