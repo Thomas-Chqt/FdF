@@ -9,6 +9,7 @@
 			"type": "cppdbg",
 			"request": "launch",
 			"program": "${workspaceFolder}/Debug.out",
+			"args": ["/Users/tchoquet/Documents/42Projects/FdF/FdF/test_maps/elem-fract.fdf"],
 			"stopAtEntry": false,
 			"cwd": "${fileDirname}",
 			"externalConsole": false,

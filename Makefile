@@ -6,7 +6,7 @@
 #    By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/23 02:03:03 by tchoquet          #+#    #+#              #
-#    Updated: 2023/06/23 13:46:30 by tchoquet         ###   ########.fr        #
+#    Updated: 2023/06/24 19:00:47 by tchoquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJ_DEBUG	= ${patsubst ${SRCS_DIR}%, ${BUILD_DIR}%, ${SRC:.c=_debug.o}}
 CC					= gcc
 CFLAGS				= -Wall -Wextra -Werror
 alldebug: CFLAGS	= -g -D MEMCHEK
-EXTERNAL_LIBS		= -l ft -l ftprintf -l wrapped_mlx  -l 3D_Graphics -l memory_leak_detector -framework OpenGL -framework AppKit
+EXTERNAL_LIBS		= -l ft -l ftprintf -l wrapped_mlx -l 3D_Graphics -l 2D_Graphics -l memory_leak_detector -framework OpenGL -framework AppKit
 
 NAME		= ${ROOT}/fdf
 NAME_DEBUG	= ${ROOT}/Debug.out

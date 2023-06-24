@@ -4,3 +4,4 @@
 build/*
 fdf
 *.out
+test_maps/*
