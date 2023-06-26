@@ -6,7 +6,7 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 18:23:48 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/06/25 19:28:34 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/06/26 12:50:29 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	toggle_rotation(t_window *window, void *data)
 {
 	t_setup_data	*setup_data;
 
+	window = NULL;
 	setup_data = (t_setup_data *)data;
 	if (setup_data->rotation == false)
 		setup_data->rotation = true;
