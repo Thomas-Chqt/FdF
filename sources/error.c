@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print.c                                            :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/24 17:43:28 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/06/25 18:52:07 by tchoquet         ###   ########.fr       */
+/*   Created: 2023/06/30 16:53:34 by tchoquet          #+#    #+#             */
+/*   Updated: 2023/06/30 17:15:27 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	print_error(int error_code)
+int	print_error(int error_code)
 {
-	if (error_code == NO_ARGS || error_code == NO_MAP)
-	{
-		ft_printf("No map provided, please run fdf like this :\n");
-		print_help();
-	}
-	else if (error_code == ERROR_PARSING_ARGS)
-	{
-		ft_printf("Please run fdf like this :\n");
-		print_help();
-	}
+	if (error_code == NO_MAP)
+		ft_printf("No map provided.\n");
+	else if (error_code == READ_ERROR)
+		ft_printf("Error while reading map file.\n");
 	else
-	{
 		ft_printf("Unknown error.\n");
-	}
-}
-
-void	print_help(void)
-{
-	ft_printf("./fdf [-h] [-c1] [-c2] [-c3] file\n");
+	return (error_code);
 }

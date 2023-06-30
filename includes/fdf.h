@@ -6,7 +6,7 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 01:59:21 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/06/25 19:27:22 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/06/30 19:17:28 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,58 +20,52 @@
 # endif // MEMCHEK
 
 # include <stdlib.h>
-# include <sys/errno.h>
 
+# include <libft.h>
 # include <ft_printf.h>
 # include <wrapped_mlx.h>
-# include <libft.h>
 # include <DDD_Graphics.h>
-# include <math.h>
 
 # define WIDTH 1280
 # define HEIGHT 720
 
-# define NO_ARGS -1111
-# define ERROR_PARSING_ARGS -2222
-# define UNKNOWN_ERROR -3333
-# define NO_MAP -4444
-# define MAP_READ_ERROR -5555
+# define UNKNOWN_ERROR -1111
+# define NO_MAP -2222
+# define READ_ERROR -3333
 
 typedef struct s_setup_data	t_setup_data;
-typedef struct s_arguments	t_arguments;
-typedef struct s_option		t_option;
 
 struct s_setup_data
 {
-	t_arguments		*arguments;
-	t_3d_context	*ddd_context;
-	t_3d_scene		*scene;
-	t_3d_model		original_model;
+	t_window		*window;
+	t_3d_context	*context;
+	t_3d_model		map_model;
 	t_3d_object		*map;
+	t_projection	proj;
+	t_bool			clicked;
+	int				src_x;
+	int				src_y;
+	t_vect_3d		src_rot;
+	t_vect_3d		new_rot;
 	t_bool			rotation;
 };
 
-struct s_arguments
-{
-	t_bool		help;
-	t_color		colors1;
-	t_color		colors2;
-	t_color		colors3;
-	char		*map_file;
-};
+void	main_loop(void *data);
+void	free_setup_data(void *data);
 
-void			main_loop(t_window *window, void *data);
-void			free_setup_data(void *data);
+int		print_error(int error_code);
 
-t_setup_data	*init_setup_data(t_window *window, int argc, char const *argv[]);
-
-void			swich_to_iso(t_window *window, void *data);
-void			toggle_rotation(t_window *window, void *data);
-
-t_arguments		*parse_arguments(int argc, char const *argv[]);
-void			free_arguments(t_arguments	*args);
-
-void			print_error(int error_code);
-void			print_help(void);
+void	escape_action(void *data);
+void	make_iso(void *data);
+void	make_ortho(void *data);
+void	wheel_up(int x, int y, void *data);
+void	wheel_down(int x, int y, void *data);
+void	up(void *data);
+void	down(void *data);
+void	right(void *data);
+void	left(void *data);
+void	click(int x, int y, void *data);
+void	move(int x, int y, void *data);
+void	toggle_rot(void *data);
 
 #endif // FDF_H
