@@ -6,7 +6,7 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 17:19:05 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/06/30 19:10:50 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/07/01 21:18:27 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ void	wheel_up(int x, int y, void *data)
 {
 	t_setup_data	*setup_data;
 
-	x = 0;
-	y = 0;
+	x = y;
+	y = x;
 	setup_data = (t_setup_data *)data;
 	set_3d_object_scale(setup_data->map,
 		vector_add(get_3d_object_scale(setup_data->map),
@@ -83,8 +83,8 @@ void	wheel_down(int x, int y, void *data)
 {
 	t_setup_data	*setup_data;
 
-	x = 0;
-	y = 0;
+	x = y;
+	y = x;
 	setup_data = (t_setup_data *)data;
 	set_3d_object_scale(setup_data->map,
 		vector_add(get_3d_object_scale(setup_data->map),
