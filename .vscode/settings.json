@@ -1,8 +1,9 @@
 {
 	"C_Cpp.default.includePath": [
+		"Libft/includes",
+		"MiniLibXWrapper/includes",
+		"2DGraphics/includes",
+		"3DGraphics/includes",
 		"includes"
-	],
-	"files.exclude": {
-		"fdf": true
-	}
+	]
 }
