@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/06/23 02:03:03 by tchoquet          #+#    #+#              #
-#    Updated: 2023/07/02 18:19:33 by tchoquet         ###   ########.fr        #
+#    Created: 2023/05/22 19:15:34 by tchoquet          #+#    #+#              #
+#    Updated: 2023/07/02 17:54:12 by tchoquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,33 +14,35 @@ ROOT			= .
 SRCS_DIR		= ${ROOT}/sources
 INCLUDES_DIR	= ${ROOT}/includes
 BUILD_DIR		= ${ROOT}/build
+MINI_LIB_X_DIR	= ${ROOT}/MiniLibX
 
-SRC			= ${wildcard ${SRCS_DIR}/*.c}
-OBJ			= ${patsubst ${SRCS_DIR}%, ${BUILD_DIR}%, ${SRC:.c=.o}}
+SRC				= ${wildcard ${SRCS_DIR}/*.c}
+OBJ 			= ${patsubst ${SRCS_DIR}%, ${BUILD_DIR}%, ${SRC:.c=.o}}
+MINI_LIB_X_LIB	= ${MINI_LIB_X_DIR}/libmlx.a
 
 CC					= gcc
 CFLAGS				= -Wall -Wextra -Werror
 memcheck: CFLAGS 	+= -D MEMCHEK
-DEPENDENCIES		= -I Libft -I MiniLibXWrapper -I 2DGraphics -I 3DGraphics
-LIBS				= 	Libft/libft.a						\
-						MiniLibXWrapper/libwrapped_mlx.a	\
-						2DGraphics/lib2D_Graphics.a			\
-						3DGraphics/lib3D_Graphics.a
-memcheck: MEM		= memcheck
+DEPENDENCIES		= -I../Libft
 
-NAME		= ${ROOT}/fdf
+NAME			= ${ROOT}/libwrapped_mlx.a
+EXPORT_INCLUDE	= ${ROOT}/wrapped_mlx.h
 
 
 .PHONY: all clean fclean re norm memcheck
 
 
-all: ${NAME}
+all: ${NAME} ${EXPORT_INCLUDE}
 
-${NAME}: ${LIBS} ${OBJ}
+${NAME}: ${MINI_LIB_X_LIB} ${OBJ}
+	cp ${MINI_LIB_X_LIB} $@
 	ar rc $@ ${OBJ}
 
 ${BUILD_DIR}/%.o: ${SRCS_DIR}/%.c | ${BUILD_DIR}
-	${CC} ${CFLAGS} -o $@ -c $< -I${INCLUDES_DIR} ${DEPENDENCIES}
+	${CC} ${CFLAGS} -o $@ -c $< -I${MINI_LIB_X_DIR} -I${INCLUDES_DIR} ${DEPENDENCIES}
+
+${ROOT}/%.h: ${INCLUDES_DIR}/%.h
+	cp $< $@
 
 
 clean:
@@ -48,10 +50,8 @@ clean:
 
 
 fclean: clean
-	make -C Libft fclean
-	make -C MiniLibXWrapper fclean
-	make -C 2DGraphics fclean
-	make -C 3DGraphics fclean
+	@echo Clean MiniLibX...
+	@make -s -C ${MINI_LIB_X_DIR} clean
 	rm -rf ${NAME} ${EXPORT_INCLUDE}
 
 
@@ -59,10 +59,6 @@ re: fclean all
 
 
 norm:
-	make -C Libft norm 
-	make -C MiniLibXWrapper norm 
-	make -C 2DGraphics norm 
-	make -C 3DGraphics norm 
 	norminette ${SRCS_DIR} ${INCLUDES_DIR}
 
 
@@ -73,11 +69,6 @@ ${BUILD_DIR}:
 	mkdir -p $@
 
 
-Libft/libft.a:
-	make -C Libft ${MEM}
-MiniLibXWrapper/libwrapped_mlx.a:
-	make -C MiniLibXWrapper ${MEM}
-2DGraphics/lib2D_Graphics.a:
-	make -C 2DGraphics ${MEM}
-3DGraphics/lib3D_Graphics.a:
-	make -C 3DGraphics ${MEM}
+${MINI_LIB_X_LIB}:
+	@echo Build MiniLibX...
+	@make -s -C ${MINI_LIB_X_DIR} all
