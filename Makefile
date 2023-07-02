@@ -6,7 +6,7 @@
 #    By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/23 02:03:03 by tchoquet          #+#    #+#              #
-#    Updated: 2023/07/02 18:52:45 by tchoquet         ###   ########.fr        #
+#    Updated: 2023/07/02 19:10:05 by tchoquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ NAME		= ${ROOT}/fdf
 all: ${NAME}
 
 ${NAME}: ${LIBS} ${OBJ}
-	ar rc $@ ${OBJ}
+	${CC} -o $@ $^ -framework OpenGL -framework AppKit
 
 ${BUILD_DIR}/%.o: ${SRCS_DIR}/%.c | ${BUILD_DIR}
 	${CC} ${CFLAGS} -o $@ -c $< -I${INCLUDES_DIR} ${DEPENDENCIES}
