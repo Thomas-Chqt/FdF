@@ -6,7 +6,7 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 02:01:01 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/07/02 18:42:18 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/07/02 19:59:38 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ __attribute__((destructor))
 static void	destructor(void)
 {
 	print_report();
-	system("leaks -q Debug.out");
 }
 
 #endif // MEMCHECK
