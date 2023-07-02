@@ -6,43 +6,45 @@
 #    By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/23 02:03:03 by tchoquet          #+#    #+#              #
-#    Updated: 2023/07/02 19:19:02 by tchoquet         ###   ########.fr        #
+#    Updated: 2023/07/02 19:53:41 by tchoquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-ROOT			= .
-SRCS_DIR		= ${ROOT}/sources
-INCLUDES_DIR	= ${ROOT}/includes
-BUILD_DIR		= ${ROOT}/build
+ROOT				= .
+SRCS_DIR			= ${ROOT}/sources
+INCLUDES_DIR		= ${ROOT}/includes
+BUILD_DIR			= ${ROOT}/build
+DEPENDENCIES_DIR	= Libft MiniLibXWrapper 2DGraphics 3DGraphics
 
 SRC			= ${wildcard ${SRCS_DIR}/*.c}
 OBJ			= ${patsubst ${SRCS_DIR}%, ${BUILD_DIR}%, ${SRC:.c=.o}}
 
 CC						= gcc
 CFLAGS					= -Wall -Wextra -Werror
-memcheck: CFLAGS 		+= -D MEMCHECK
-DEPENDENCIES			= -I Libft -I MiniLibXWrapper -I 2DGraphics -I 3DGraphics
+memcheck: CFLAGS		+= -D MEMCHECK
+
+INCLUDES				= $(foreach dir,${INCLUDES_DIR} ${DEPENDENCIES_DIR}, -I${dir})
 LIBS					= 	Libft/libft.a						\
 							MiniLibXWrapper/libwrapped_mlx.a	\
 							2DGraphics/lib2D_Graphics.a			\
 							3DGraphics/lib3D_Graphics.a
-EXTERNAL_LIBS			=  -framework OpenGL -framework AppKit
+EXTERNAL_LIBS			= -framework OpenGL -framework AppKit
 memcheck: EXTERNAL_LIBS	+= -l memory_leak_detector
 memcheck: MEM			= memcheck
 
 NAME		= ${ROOT}/fdf
 
 
-.PHONY: all clean fclean re norm memcheck
+.PHONY: all clean fclean re Libft MiniLibXWrapper 2DGraphics 3DGraphics dependencies norm memcheck
 
 
-all: ${NAME}
+all: dependencies ${NAME}
 
-${NAME}: ${LIBS} ${OBJ}
-	${CC} -o $@ $^ ${EXTERNAL_LIBS}
+${NAME}: ${OBJ}
+	${CC} -o $@ $^ ${LIBS} ${EXTERNAL_LIBS}
 
 ${BUILD_DIR}/%.o: ${SRCS_DIR}/%.c | ${BUILD_DIR}
-	${CC} ${CFLAGS} -o $@ -c $< -I${INCLUDES_DIR} ${DEPENDENCIES}
+	${CC} ${CFLAGS} -o $@ -c $< ${INCLUDES}
 
 
 clean:
@@ -59,6 +61,19 @@ fclean: clean
 
 re: fclean all
 
+dependencies: Libft MiniLibXWrapper 2DGraphics 3DGraphics
+
+Libft:
+	make -C Libft ${MEM}
+
+MiniLibXWrapper:
+	make -C MiniLibXWrapper ${MEM}
+
+2DGraphics:
+	make -C 2DGraphics ${MEM}
+
+3DGraphics:
+	make -C 3DGraphics ${MEM}
 
 norm:
 	make -C Libft norm 
@@ -73,13 +88,4 @@ memcheck: all
 
 ${BUILD_DIR}:
 	mkdir -p $@
-
-
-Libft/libft.a:
-	make -C Libft ${MEM}
-MiniLibXWrapper/libwrapped_mlx.a:
-	make -C MiniLibXWrapper ${MEM}
-2DGraphics/lib2D_Graphics.a:
-	make -C 2DGraphics ${MEM}
-3DGraphics/lib3D_Graphics.a:
-	make -C 3DGraphics ${MEM}
+	

@@ -6,7 +6,7 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 15:55:24 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/07/01 23:04:33 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/07/02 19:27:35 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,10 +109,9 @@ static t_3d_point	create_point(t_uint32 x, char *str, t_uint32 z)
 	color = WHITE;
 	splited_str = ft_split(str, ',');
 	if (splited_str != NULL && splited_str[1] != NULL)
-	{
 		color = color_raw_rgb(atoi_hex(splited_str[1]));
+	if (splited_str != NULL)
 		free_splited_str(splited_str);
-	}
 	return ((t_3d_point){
 		.pos = new_vect_3d((float)x, (float)y, (float)z),
 		.color = color}
