@@ -6,16 +6,16 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 19:21:28 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/06/26 16:05:05 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/07/02 18:40:26 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DD_GRAPHICS_INTERNAL_H
 # define DD_GRAPHICS_INTERNAL_H
 
-# ifdef MEMCHEK
+# ifdef MEMCHECK
 #  include <memory_leak_detector.h>
-# endif // MEMCHEK
+# endif // MEMCHECK
 
 # include <stdlib.h>
 # include <math.h>

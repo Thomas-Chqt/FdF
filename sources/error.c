@@ -6,7 +6,7 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 16:53:34 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/06/30 17:15:27 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/07/02 18:34:47 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 int	print_error(int error_code)
 {
 	if (error_code == NO_MAP)
-		ft_printf("No map provided.\n");
+		write(1, "No map provided.\n", 17);
 	else if (error_code == READ_ERROR)
-		ft_printf("Error while reading map file.\n");
+		write(1, "Error while reading map file.\n", 30);
 	else
-		ft_printf("Unknown error.\n");
+		write(1, "Unknown error.\n", 15);
 	return (error_code);
 }

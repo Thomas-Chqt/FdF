@@ -6,13 +6,13 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 02:01:01 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/06/30 19:06:32 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/07/02 18:42:18 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-#ifdef MEMCHEK
+#ifdef MEMCHECK
 
 __attribute__((destructor))
 static void	destructor(void)
@@ -21,7 +21,7 @@ static void	destructor(void)
 	system("leaks -q Debug.out");
 }
 
-#endif // MEMCHEK
+#endif // MEMCHECK
 
 static void	add_envents(t_window *window, void *data)
 {

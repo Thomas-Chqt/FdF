@@ -6,7 +6,7 @@
 #    By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/14 15:49:08 by tchoquet          #+#    #+#              #
-#    Updated: 2023/07/02 18:00:57 by tchoquet         ###   ########.fr        #
+#    Updated: 2023/07/02 18:50:29 by tchoquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJ 			= ${patsubst ${SRCS_DIR}%, ${BUILD_DIR}%, ${SRC:.c=.o}}
 
 CC					= gcc
 CFLAGS				= -Wall -Wextra -Werror
-memcheck: CFLAGS 	+= -D MEMCHEK
+memcheck: CFLAGS 	+= -D MEMCHECK
 DEPENDENCIES		= -I../Libft -I../2DGraphics
 
 NAME			= ${ROOT}/lib3D_Graphics.a

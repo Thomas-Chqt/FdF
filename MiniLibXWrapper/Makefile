@@ -6,7 +6,7 @@
 #    By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/22 19:15:34 by tchoquet          #+#    #+#              #
-#    Updated: 2023/07/02 17:54:12 by tchoquet         ###   ########.fr        #
+#    Updated: 2023/07/02 18:50:34 by tchoquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ MINI_LIB_X_LIB	= ${MINI_LIB_X_DIR}/libmlx.a
 
 CC					= gcc
 CFLAGS				= -Wall -Wextra -Werror
-memcheck: CFLAGS 	+= -D MEMCHEK
+memcheck: CFLAGS 	+= -D MEMCHECK
 DEPENDENCIES		= -I../Libft
 
 NAME			= ${ROOT}/libwrapped_mlx.a

@@ -6,7 +6,7 @@
 #    By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/16 16:24:59 by tchoquet          #+#    #+#              #
-#    Updated: 2023/07/02 17:38:57 by tchoquet         ###   ########.fr        #
+#    Updated: 2023/07/02 18:50:32 by tchoquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJ = ${patsubst ${SRCS_DIR}%, ${BUILD_DIR}%, ${SRC:.c=.o}}
 
 CC					= gcc
 CFLAGS				= -Wall -Wextra -Werror
-memcheck: CFLAGS 	+= -D MEMCHEK
+memcheck: CFLAGS 	+= -D MEMCHECK
 
 NAME			= ${ROOT}/libft.a
 EXPORT_INCLUDE	= ${ROOT}/libft.h

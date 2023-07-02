@@ -6,7 +6,7 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 01:59:21 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/06/30 19:17:28 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/07/02 18:41:11 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 
 # define USE_QUADRILATERAL
 
-# ifdef MEMCHEK
+# ifdef MEMCHECK
 #  include <memory_leak_detector.h>
-# endif // MEMCHEK
+# endif // MEMCHECK
 
 # include <stdlib.h>
 
 # include <libft.h>
-# include <ft_printf.h>
+# include <unistd.h>
 # include <wrapped_mlx.h>
 # include <DDD_Graphics.h>
 

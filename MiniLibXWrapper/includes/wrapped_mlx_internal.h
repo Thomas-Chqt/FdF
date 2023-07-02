@@ -6,12 +6,16 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 01:47:38 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/06/26 15:45:33 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/07/02 18:40:11 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WRAPPED_MLX_INTERNAL_H
 # define WRAPPED_MLX_INTERNAL_H
+
+# ifdef MEMCHECK
+#  include <memory_leak_detector.h>
+# endif // MEMCHECK
 
 # include <libft.h>
 # include <stdlib.h>

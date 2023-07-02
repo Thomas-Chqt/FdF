@@ -6,7 +6,7 @@
 #    By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/23 02:03:03 by tchoquet          #+#    #+#              #
-#    Updated: 2023/07/02 18:19:33 by tchoquet         ###   ########.fr        #
+#    Updated: 2023/07/02 18:52:45 by tchoquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJ			= ${patsubst ${SRCS_DIR}%, ${BUILD_DIR}%, ${SRC:.c=.o}}
 
 CC					= gcc
 CFLAGS				= -Wall -Wextra -Werror
-memcheck: CFLAGS 	+= -D MEMCHEK
+memcheck: CFLAGS 	+= -D MEMCHECK
 DEPENDENCIES		= -I Libft -I MiniLibXWrapper -I 2DGraphics -I 3DGraphics
 LIBS				= 	Libft/libft.a						\
 						MiniLibXWrapper/libwrapped_mlx.a	\
