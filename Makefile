@@ -6,7 +6,7 @@
 #    By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/23 02:03:03 by tchoquet          #+#    #+#              #
-#    Updated: 2023/07/02 19:10:05 by tchoquet         ###   ########.fr        #
+#    Updated: 2023/07/02 19:19:02 by tchoquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,15 +18,17 @@ BUILD_DIR		= ${ROOT}/build
 SRC			= ${wildcard ${SRCS_DIR}/*.c}
 OBJ			= ${patsubst ${SRCS_DIR}%, ${BUILD_DIR}%, ${SRC:.c=.o}}
 
-CC					= gcc
-CFLAGS				= -Wall -Wextra -Werror
-memcheck: CFLAGS 	+= -D MEMCHECK
-DEPENDENCIES		= -I Libft -I MiniLibXWrapper -I 2DGraphics -I 3DGraphics
-LIBS				= 	Libft/libft.a						\
-						MiniLibXWrapper/libwrapped_mlx.a	\
-						2DGraphics/lib2D_Graphics.a			\
-						3DGraphics/lib3D_Graphics.a
-memcheck: MEM		= memcheck
+CC						= gcc
+CFLAGS					= -Wall -Wextra -Werror
+memcheck: CFLAGS 		+= -D MEMCHECK
+DEPENDENCIES			= -I Libft -I MiniLibXWrapper -I 2DGraphics -I 3DGraphics
+LIBS					= 	Libft/libft.a						\
+							MiniLibXWrapper/libwrapped_mlx.a	\
+							2DGraphics/lib2D_Graphics.a			\
+							3DGraphics/lib3D_Graphics.a
+EXTERNAL_LIBS			=  -framework OpenGL -framework AppKit
+memcheck: EXTERNAL_LIBS	+= -l memory_leak_detector
+memcheck: MEM			= memcheck
 
 NAME		= ${ROOT}/fdf
 
@@ -37,7 +39,7 @@ NAME		= ${ROOT}/fdf
 all: ${NAME}
 
 ${NAME}: ${LIBS} ${OBJ}
-	${CC} -o $@ $^ -framework OpenGL -framework AppKit
+	${CC} -o $@ $^ ${EXTERNAL_LIBS}
 
 ${BUILD_DIR}/%.o: ${SRCS_DIR}/%.c | ${BUILD_DIR}
 	${CC} ${CFLAGS} -o $@ -c $< -I${INCLUDES_DIR} ${DEPENDENCIES}
