@@ -6,7 +6,7 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 01:47:38 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/07/02 18:40:11 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/07/02 20:04:01 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,6 @@ typedef struct s_i_window
 
 int		main_loop_func_wrapper(void *param);
 void	delete_window_wrapper(void *data);
+void	free_wrapper_mlx(void *ptr);
 
 #endif // WRAPPED_MLX_INTERNAL_H

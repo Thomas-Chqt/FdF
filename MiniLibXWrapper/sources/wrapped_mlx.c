@@ -6,7 +6,7 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 13:23:38 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/06/26 15:47:05 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/07/02 20:04:01 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,10 @@ void	delete_window(t_window *window, int return_code)
 	i_window = (t_i_window *)window;
 	if (i_window->clean_func != NULL)
 		i_window->clean_func(i_window->setup_data);
-	ft_lstclear(&(i_window->key_event_list_head), &free);
-	ft_lstclear(&(i_window->mouse_event_list_head), &free);
-	ft_lstclear(&(i_window->mouse_move_event_list_head), &free);
-	ft_lstclear(&(i_window->window_event_list_head), &free);
+	ft_lstclear(&(i_window->key_event_list_head), &free_wrapper_mlx);
+	ft_lstclear(&(i_window->mouse_event_list_head), &free_wrapper_mlx);
+	ft_lstclear(&(i_window->mouse_move_event_list_head), &free_wrapper_mlx);
+	ft_lstclear(&(i_window->window_event_list_head), &free_wrapper_mlx);
 	if (i_window->mlx_render_image)
 		mlx_destroy_image(i_window->mlx, i_window->mlx_render_image);
 	if (i_window->mlx_window)

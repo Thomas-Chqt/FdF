@@ -6,7 +6,7 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 14:17:26 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/06/26 15:46:04 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/07/02 20:04:01 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,9 @@ int	main_loop_func_wrapper(void *param)
 void	delete_window_wrapper(void *data)
 {
 	delete_window((t_window *)data, 0);
+}
+
+void	free_wrapper_mlx(void *ptr)
+{
+	free(ptr);
 }
