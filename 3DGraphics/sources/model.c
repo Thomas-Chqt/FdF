@@ -6,7 +6,7 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 19:44:18 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/06/30 17:16:26 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/07/02 18:24:28 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_3d_model	load_file(char const *file_path)
 		&& ft_strncmp(ft_strrchr(file_path, '.'), ".fdf", 4) == 0)
 	{
 		loaded_model = load_fdf_file(file_path);
-		if (loaded_model.quads != NULL) 
+		if (loaded_model.quads != NULL)
 			flip_z(&loaded_model);
 		return (loaded_model);
 	}
