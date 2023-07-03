@@ -6,13 +6,11 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 15:23:36 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/07/03 14:07:55 by tchoquet         ###   ########.fr       */
+/*   Updated: 2023/07/03 16:33:15 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_internal.h"
-
-#define NO_REDEFINE
 
 void	*ft_calloc(size_t count, size_t size)
 {
