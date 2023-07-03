@@ -8,3 +8,4 @@ Libft/libft.h
 MiniLibXWrapper/wrapped_mlx.h
 2DGraphics/DD_Graphics.h
 3DGraphics/DDD_Graphics.h
+.test_maps/*
