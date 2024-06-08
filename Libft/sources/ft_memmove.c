@@ -6,7 +6,7 @@
 /*   By: tchoquet <tchoquet@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 14:01:07 by tchoquet          #+#    #+#             */
-/*   Updated: 2023/06/18 12:22:38 by tchoquet         ###   ########.fr       */
+/*   Updated: 2024/06/08 19:18:40 by tchoquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 
 	if (dst == NULL || src == NULL)
 		return (NULL);
-	if ((((char*)src + len) > dst) && (((char*)dst + len) > ((char*)src + len)))
+	if ((((char*)src + len) > (char*)dst) && (((char*)dst + len) >
+        ((char*)src + len)))
 	{
 		i = len - 1;
 		while (i >= 0)

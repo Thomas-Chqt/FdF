@@ -7,7 +7,9 @@
 
 cmake_minimum_required(VERSION 3.23)
 
-project(FdF LANGUAGES C)
+project(FdF)
+
+enable_language(C)
 
 add_executable(FdF)
 
