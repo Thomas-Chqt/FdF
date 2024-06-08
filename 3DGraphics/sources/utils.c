@@ -15,7 +15,7 @@
 void	*map_quads(t_3d_quad *array, size_t len, size_t ret_el_size,
 			void *(*func)(t_3d_quad *))
 {
-	void		*output;
+	char		*output;
 	t_uint32	i;
 	void		*fun_res;
 

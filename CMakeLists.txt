@@ -7,7 +7,7 @@
 
 cmake_minimum_required(VERSION 3.23)
 
-project(FdF LANGUAGES C CXX OBJC OBJCXX)
+project(FdF LANGUAGES C)
 
 add_executable(FdF)
 
@@ -27,6 +27,10 @@ target_include_directories(FdF PRIVATE
     "Libft/includes"
     "MiniLibXWrapper/includes"
 )
+
+if(WIN32)
+    target_include_directories(FdF PRIVATE unistd)
+endif()
 
 find_program(GIT_PATH git REQUIRED)
 execute_process(COMMAND ${GIT_PATH} submodule update --init MinilibX WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
