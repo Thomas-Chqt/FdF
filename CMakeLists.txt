@@ -32,6 +32,11 @@ find_program(GIT_PATH git REQUIRED)
 execute_process(COMMAND ${GIT_PATH} submodule update --init MinilibX WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 add_subdirectory("MinilibX")
 
+set_target_properties(mlx PROPERTIES FOLDER "dependencies")
+if(TARGET MLX_MetalShaderLibrary)
+    set_target_properties(MLX_MetalShaderLibrary PROPERTIES FOLDER "dependencies")
+endif()
+
 target_link_libraries(FdF mlx)
 
 target_include_directories(FdF PRIVATE "MinilibX/include/mlx")
