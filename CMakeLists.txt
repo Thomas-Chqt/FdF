@@ -40,11 +40,8 @@ endif()
 
 find_program(GIT_PATH git REQUIRED)
 execute_process(COMMAND ${GIT_PATH} submodule update --init MinilibX WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
-if(APPLE AND NOT FDF_FORCE_OPENGL)
+if(APPLE)
     set(MLX_ENABLE_OPENGL OFF)
-elseif(APPLE AND FDF_FORCE_OPENGL)
-    set(MLX_ENABLE_OPENGL ON)
-    set(MLX_ENABLE_METAL  OFF)
 endif()
 add_subdirectory("MinilibX")
 
