@@ -5,7 +5,7 @@
 # Date: 2024/05/26 12:54:56
 # ---------------------------------------------------
 
-cmake_minimum_required(VERSION 3.23)
+cmake_minimum_required(VERSION 3.16)
 
 if(APPLE)
     option(FDF_FORCE_OPENGL "force use opengl over metal" OFF)
