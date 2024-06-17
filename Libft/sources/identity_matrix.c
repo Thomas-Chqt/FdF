@@ -16,7 +16,7 @@ t_mat4x4	identity_matrix(void)
 {
 	t_mat4x4	matrix;
 
-	matrix = (t_mat4x4){};
+    matrix = (t_mat4x4){0};
 	matrix.m[0][0] = 1.0f;
 	matrix.m[1][1] = 1.0f;
 	matrix.m[2][2] = 1.0f;

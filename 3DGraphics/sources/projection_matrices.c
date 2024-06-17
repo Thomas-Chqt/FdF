@@ -55,7 +55,7 @@ static t_mat4x4	get_perspective_proj_matrix(t_2d_context *dd_context)
 	f_fov_rad = 1.0f / tanf(FOV * 0.5f / 180.0f * 3.14159f);
 	f_aspect_ratio = (float)get_2d_context_height(dd_context)
 		/ (float)get_2d_context_width(dd_context);
-	matrix = (t_mat4x4){};
+	matrix = (t_mat4x4){0};
 	matrix.m[0][0] = f_aspect_ratio * f_fov_rad;
 	matrix.m[1][1] = f_fov_rad;
 	matrix.m[2][2] = F_FAR / (F_FAR - F_NEAR);
