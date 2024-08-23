@@ -3,7 +3,7 @@ FdF: Wireframe Map Renderer
 
 FdF is the first graphic project at 42. The goal is to create a wireframe representation of a map given as an argument.
 
-The map is a 2D grid that represents the elevation of each point. The x and y coordinates correspond to the row and column numbers. Each point can also have an associated hexadecimal color. By applying an isometric projection to the vertices and connecting them with lines, the desired visual representation is achieved.
+The map is a 2D grid that represents the elevation of each point. The x and y coordinates correspond to the row and column numbers. Each point can also have an associated hexadecimal color. By applying an isometric projection to the vertices and connecting them with lines, the desired visual representation is achieved.  
 To get more information about the subject please refer to [Subject.pdf](Subject.pdf)
 
 To view the code that I pushed to the school repository, please refer to the `42-Repo` branch.
@@ -72,8 +72,8 @@ t2
 Libraries
 ---------
 
-FdF uses one library called MiniLibX, provided by 42. It allows for basic keyboard and mouse input, opening windows, and simple drawing capabilities.
-To draw inside the window, MiniLibX provides a way to create pixel buffers. The user can then set pixel colors inside the buffers and draw the buffers on the window.
+FdF uses one library called MiniLibX, provided by 42. It allows for basic keyboard and mouse input, opening windows, and simple drawing capabilities.  
+To draw inside the window, MiniLibX provides a way to create pixel buffers. The user can then set pixel colors inside the buffers and draw the buffers on the window.  
 In my case i use a single buffer that i draw every frame on the window, which allows me to manipulate each pixel of the window individually.
 
 This branch uses my own implementation of MiniLibX in order to compile for Windows, Linux, and macOS.
@@ -84,7 +84,7 @@ This branch uses my own implementation of MiniLibX in order to compile for Windo
 Learning
 --------
 
-FdF was an excellent introduction to computer graphics, providing hands-on experience with matrix multiplication for 3D transformations and projections.
+FdF was an excellent introduction to computer graphics, providing hands-on experience with matrix multiplication for 3D transformations and projections.  
 Through the implementation of graphics at the pixel level, I gained a deep understanding of fundamental concepts like Bresenham's line algorithm.
 
 One of the main challenges I encountered was understanding the application of matrices for 3D transformations and effectively using them to rotate and move my mesh. This required a solid understanding of linear algebra and its practical implementation in computer graphics.
