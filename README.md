@@ -1,4 +1,4 @@
-FdF: Wireframe Map Renderer
+FdF
 ===========================
 
 FdF is the first graphic project at 42. The goal is to create a wireframe representation of a map given as an argument.
