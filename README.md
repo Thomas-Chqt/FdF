@@ -11,7 +11,7 @@ To view the code that I pushed to the school repository, please refer to the `42
 Support
 ------
 
-| Platform | Supported | Used Graphic API |
+| Platform | Supported | Graphic API      |
 |----------|-----------|------------------|
 | Windows  | YES       | OpenGL           |
 | Linux    | YES       | OpenGL           |
